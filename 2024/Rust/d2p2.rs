@@ -1,3 +1,4 @@
+#!/usr/bin/env rust-script
 use std::fs::File;
 use std::io::{prelude::*, BufReader, Result};
 

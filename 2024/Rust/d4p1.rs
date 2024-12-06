@@ -1,3 +1,4 @@
+#!/usr/bin/env rust-script
 const W: usize = 140;
 const H: usize = 140;
 
