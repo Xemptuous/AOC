@@ -1,26 +1,26 @@
 #!/usr/bin/env rust-script
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{prelude::*, BufReader, Result};
+use std::io::{prelude::*, BufReader};
 
-fn get_numbers_from_file() -> Result<(Vec<i32>, Vec<i32>)> {
-    let file = File::open("input.txt")?;
+fn get_numbers_from_file() -> (Vec<i32>, Vec<i32>) {
+    let file = File::open("inputs/d1.in").expect("Couldn't open file");
     let reader = BufReader::new(file);
 
     let mut left: Vec<i32> = Vec::new();
     let mut right: Vec<i32> = Vec::new();
     for line in reader.lines() {
-        let line_str = line?;
+        let line_str = line.expect("Couldn't read line");
         let mut split = line_str.split_whitespace();
         let (l, r) = (split.next().unwrap(), split.next().unwrap());
         left.push(String::from(l).parse::<i32>().unwrap());
         right.push(String::from(r).parse::<i32>().unwrap());
     }
-    Ok((left, right))
+    (left, right)
 }
 
-fn main() -> Result<()> {
-    let (left, right) = get_numbers_from_file()?;
+fn main() {
+    let (left, right) = get_numbers_from_file();
 
     // create occurences in right list
     let mut r_map: HashMap<&i32, i32> = HashMap::new();
@@ -41,5 +41,4 @@ fn main() -> Result<()> {
         }
     }
     println!("{}", sum);
-    Ok(())
 }

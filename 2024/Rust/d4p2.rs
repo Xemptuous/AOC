@@ -7,7 +7,7 @@ fn xy_idx(x: usize, y: usize) -> usize {
 }
 
 fn main() {
-    let input: Vec<u8> = std::fs::read("input.txt")
+    let input: Vec<u8> = std::fs::read("inputs/d4.in")
         .expect("Couldn't open file.")
         .into_iter()
         .filter(|&b| !b.is_ascii_whitespace())

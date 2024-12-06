@@ -1,6 +1,6 @@
 #!/usr/bin/env rust-script
-use std::fs::{read_to_string, File};
-use std::io::{prelude::*, BufReader, Result};
+use std::fs::File;
+use std::io::{prelude::*, BufReader};
 
 fn read_ident(s: &str, curr: &mut usize, peek: &mut usize, char: &mut char) -> String {
     let pos = *curr;
@@ -39,18 +39,13 @@ fn read_char(s: &str, curr: &mut usize, peek: &mut usize, ch: &mut char) {
     }
 }
 
-fn peek_char(s: &str, peek: usize) -> char {
-    if peek > s.len() {
-        return '\0';
-    }
-    return s.as_bytes()[peek].into();
-}
-
-fn main() -> Result<()> {
-    let file = File::open("input.txt")?;
+fn main() {
+    let file = File::open("inputs/d3.in").expect("Couldn't open file");
     let mut reader = BufReader::new(file);
     let mut input = String::new();
-    reader.read_to_string(&mut input)?;
+    reader
+        .read_to_string(&mut input)
+        .expect("Couldn't read line");
 
     let mut sum = 0;
     let mut skip = false;
@@ -119,6 +114,4 @@ fn main() -> Result<()> {
         read_char(input.as_str(), &mut curr, &mut peek, &mut char);
     }
     println!("{}", sum);
-
-    Ok(())
 }

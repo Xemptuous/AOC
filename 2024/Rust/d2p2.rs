@@ -1,6 +1,6 @@
 #!/usr/bin/env rust-script
 use std::fs::File;
-use std::io::{prelude::*, BufReader, Result};
+use std::io::{prelude::*, BufReader};
 
 fn is_safe(nums: Vec<i32>) -> bool {
     let asc = nums
@@ -23,13 +23,13 @@ fn is_almost_safe(nums: Vec<i32>) -> bool {
     return false;
 }
 
-fn main() -> Result<()> {
-    let file = File::open("input.txt")?;
+fn main() {
+    let file = File::open("inputs/d2.in").expect("Couldn't open file");
     let reader = BufReader::new(file);
 
     let mut total_safe: i32 = 0;
     for line in reader.lines() {
-        let line_str = line?;
+        let line_str = line.expect("Couldn't read line");
         let report: Vec<i32> = line_str
             .split_whitespace()
             .filter_map(|s| s.parse::<i32>().ok())
@@ -40,5 +40,4 @@ fn main() -> Result<()> {
         }
     }
     println!("{}", total_safe);
-    Ok(())
 }

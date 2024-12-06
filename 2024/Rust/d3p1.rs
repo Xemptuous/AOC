@@ -1,6 +1,6 @@
 #!/usr/bin/env rust-script
-use std::fs::{read_to_string, File};
-use std::io::{prelude::*, BufReader, Result};
+use std::fs::File;
+use std::io::{prelude::*, BufReader};
 
 fn read_number(input: &str, curr: &mut usize, peek: &mut usize) -> i32 {
     let pos = *curr;
@@ -15,11 +15,13 @@ fn read_number(input: &str, curr: &mut usize, peek: &mut usize) -> i32 {
     return s.parse::<i32>().unwrap();
 }
 
-fn main() -> Result<()> {
-    let file = File::open("input.txt")?;
+fn main() {
+    let file = File::open("inputs/d3.in").expect("Couldn't open file");
     let mut reader = BufReader::new(file);
     let mut line = String::new();
-    reader.read_to_string(&mut line)?;
+    reader
+        .read_to_string(&mut line)
+        .expect("Couldn't read line");
     let matches: Vec<_> = line.match_indices("mul(").collect();
 
     let mut sum = 0;
@@ -42,5 +44,4 @@ fn main() -> Result<()> {
         sum += n1 * n2;
     }
     println!("{}", sum);
-    Ok(())
 }
