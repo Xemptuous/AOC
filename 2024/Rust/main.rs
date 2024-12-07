@@ -7,5 +7,7 @@ mod d3p1;
 mod d3p2;
 mod d4p1;
 mod d4p2;
+mod d5p1;
+mod d5p2;
 
 fn main() {}
