@@ -10,5 +10,6 @@ mod d4p2;
 mod d5p1;
 mod d5p2;
 mod d6p1;
+mod d6p2;
 
 fn main() {}
