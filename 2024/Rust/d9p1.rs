@@ -34,12 +34,7 @@ fn main() {
     let n = filesystem.len() - 1;
     let mut end_ptr = n;
     // get first empty index
-    let mut empty_ptr = filesystem
-        .iter()
-        .enumerate()
-        .find(|&(_, block)| block.empty)
-        .unwrap()
-        .0;
+    let mut empty_ptr = filesystem.iter().position(|block| block.empty).unwrap();
 
     // reorder blocks until contiguous
     while empty_ptr < end_ptr && end_ptr > 0 && empty_ptr < n {
