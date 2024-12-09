@@ -1,4 +1,4 @@
-#[allow(dead_code)]
+#![allow(dead_code)]
 mod d1p1;
 mod d1p2;
 mod d2p1;
@@ -13,5 +13,6 @@ mod d6p1;
 mod d6p2;
 mod d7p1;
 mod d7p2;
+mod d8p1;
 
 fn main() {}
