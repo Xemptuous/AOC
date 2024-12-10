@@ -16,5 +16,6 @@ mod d7p2;
 mod d8p1;
 mod d8p2;
 mod d9p1;
+mod d9p2;
 
 fn main() {}
