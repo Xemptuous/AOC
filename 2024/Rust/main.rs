@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 mod d10p1;
+mod d10p2;
 mod d1p1;
 mod d1p2;
 mod d2p1;
