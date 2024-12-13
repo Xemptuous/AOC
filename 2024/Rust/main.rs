@@ -3,6 +3,7 @@ mod d10p1;
 mod d10p2;
 mod d11p1;
 mod d11p2;
+mod d12p1;
 mod d1p1;
 mod d1p2;
 mod d2p1;
