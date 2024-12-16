@@ -8,6 +8,8 @@ mod d12p2;
 mod d13p1;
 mod d13p2;
 mod d14p1;
+mod d14p2;
+mod d15p1;
 mod d1p1;
 mod d1p2;
 mod d2p1;
